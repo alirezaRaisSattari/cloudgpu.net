@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{>publicHead}}
+<link href="/quill/quill.snow.css" rel="stylesheet">
+<link href="/quill/quill.core.css" rel="stylesheet">
+<script src="/quill/quill.core.js"></script>
+<script src="/quill/quill.js"></script>
+<script src="/quill/quill.min.js"></script>
+
+<head>
+    <title>وبلاگ</title>
+    <script type="module" src="/js/page/blogContent.js" defer></script>
+</head>
+
+
+<body class="relative-body">
+    {{>header}}
+
+    <section class="blog-banner row">
+        <div class="leaf" id="leaf1"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf2"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf4"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf5"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf6"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf7"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf8"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf9"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf10"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf11"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf12"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf13"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf14"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf15"><img src="/image/leaf.png" alt=""></div>
+        <div class="col-12 col-lg-7">
+            <div class="title">وبلاگ ابر‌گرافیک</div>
+            <div class="subtitle">جدید‌ترین اخبار‌ها و مقالات در زمینه داده کاوی و پردازش‌های سریع</div>
+        </div>
+
+        <div class="search col-12 col-lg-5" role="search">
+            <form action="" method="">
+                <input type="text" class="form-control" name="" value="" placeholder="جستجو در وبلاگ ابر‌گرافیک"
+                    onfocus="this.placeholder=''" onblur="this.placeholder='جستجو در وبلاگ ابر‌گرافیک'">
+            </form>
+        </div>
+    </section>
+    <section class="post">
+        <div id="blogTxt"></div>
+        <footer class="row">
+            <div class="col-12 col-xl-7">
+                <div class="title">از ابزار دیگری استفاده میکنید</div>
+                <div class="subtitle">مطمئن نیستید ما آن ابزار را پشتیبانی میکنیم؟</div>
+            </div>
+            <div class="link col-12 col-xl-5 d-flex justify-content-center align-content-center">
+                <a href="/contact_us">درخواست مشاوره رایگان<i class="fa fa-arrow-left"></i></a>
+            </div>
+        </footer>
+    </section>
+    <section class="related">
+        <header class="">
+            <img src="/image/right-arrow.png" alt="">
+            <span class="title">مطالب مشابه</span>
+            <img src="/image/left-arrow.png" alt="">
+        </header>
+    </section>
+    <section class="blog-post row related-post" id="blogContainer">
+    </section>
+
+    {{>footer}}
+    {{>toastRepository}}
+
+</body>
+<style>
+    #blogTxt img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
+</html>

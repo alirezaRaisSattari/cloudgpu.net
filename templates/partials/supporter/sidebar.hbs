@@ -1,0 +1,138 @@
+<div id="screen-loading" class="screen-loading-container">
+    <div class="text-center loading-screen">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">در حال بارگذاری</span>
+        </div>
+    </div>
+</div>
+<nav class="sidenav navbar-expand-sm navbar-light" id="sidebar">
+    <header class="d-flex">
+        <img src="/image/dashboard-logo.png" alt="">
+        <div>
+            <div class="title" id="username">ناشناس</div>
+            <div class="subtitle">خوش آمدید</div>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar"
+            aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </header>
+
+
+    <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="me-auto">
+            <li class="nav-item">
+                <a class="nav-link" id="access" href="/supporter/"><img src="/image/briefcase.png" alt="">دسترسی
+                    ‌های شما</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="manageServices" href="/supporter/manageServices"><img src="/image/briefcase.png"
+                        alt="">مدیریت سرویس
+                    ‌ها</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="blog" href="/supporter/blog"><img src="/image/layer.png" alt="">وبلاگ</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="cv" href="/supporter/cv"><img src="/image/cpu.png" alt="">رزومه‌ها</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="contactUs" href="/supporter/contactUs"><img src="/image/cpu.png" alt="">ارتباط
+                    با
+                    ما</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="tickets" href="/supporter/tickets"><img src="/image/factor.png" alt="">تیکت
+                    ‌ها</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="faq" href="/supporter/faq"><img src="/image/setting.png" alt="">پرسش‌های
+                    متداول</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="manageUsers" href="/supporter/manageUsers"><img src="/image/ticket.png"
+                        alt="">مدیریت
+                    کاربران</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="addSupporter" href="/supporter/addSupporter"><img src="/image/ticket.png"
+                        alt="">مدیریت پشتیبان ها</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="aboutUsContent" href="/supporter/aboutUsContent"><img src="/image/ticket.png"
+                        alt="">محتوا درباره ما</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="homeContent" href="/supporter/homeContent"><img src="/image/ticket.png"
+                        alt="">محتوا صفحه اصلی</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" onclick="exitSupporter()" style="cursor: pointer;"><img src="/image/logout.png"
+                        alt="">خروج از حساب کاربری</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div id="title" style="display: none;">{{name}}</div>
+
+
+<script>
+    const supporterName = localStorage.getItem("SupporterUsername");
+    const SupporterToken = localStorage.getItem("SupporterToken");
+    document.getElementById("username").innerHTML = supporterName
+
+    if (!SupporterToken) window.location.href = '/supporter/login'
+
+    const title = document.getElementById("title").innerHTML
+    const access = document.getElementById("access")
+    const manageServices = document.getElementById("manageServices")
+    const blog = document.getElementById("blog")
+    const cv = document.getElementById("cv")
+    const contactUs = document.getElementById("contactUs")
+    const tickets = document.getElementById("tickets")
+    const faq = document.getElementById("faq")
+    const manageUsers = document.getElementById("manageUsers")
+    const addSupporter = document.getElementById("addSupporter")
+    switch (title) {
+        case "access":
+            access.classList.add("active")
+            break;
+        case "manageServices":
+            manageServices.classList.add("active")
+            break;
+        case "blog":
+            blog.classList.add("active")
+            break;
+        case "cv":
+            cv.classList.add("active")
+            break;
+        case "contactUs":
+            contactUs.classList.add("active")
+            break;
+        case "tickets":
+            tickets.classList.add("active")
+            break;
+        case "faq":
+            faq.classList.add("active")
+            break;
+        case "manageUsers":
+            manageUsers.classList.add("active")
+            break;
+        case "addSupporter":
+            addSupporter.classList.add("active")
+            break;
+        default:
+    }
+
+    const exitSupporter = () => {
+        localStorage.removeItem("accessCv");
+        localStorage.removeItem("accessFaq");
+        localStorage.removeItem("accessTicket");
+        localStorage.removeItem("accessContactUs");
+        localStorage.removeItem("SupporterToken");
+        localStorage.removeItem("SupporterUsername");
+        localStorage.removeItem("accessServices");
+        localStorage.removeItem("accessAddSupporter");
+        window.location.href = '/supporter/login'
+    }
+</script>

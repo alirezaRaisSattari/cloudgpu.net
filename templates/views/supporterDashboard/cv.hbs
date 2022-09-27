@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{>supporter/head}}
+
+<head>
+    <title>مدیریت رزومه‌ها</title>
+    <script src="/js/supporter/cv.js" type="module"></script>
+</head>
+
+<body>
+    {{>supporter/sidebar}}
+    <div class="main-manage-service">
+        <div class="manage-card" id="itemContainer">
+        </div>
+    </div>
+</body>
+
+<style>
+    .accordion-item:first-of-type .accordion-button {
+        border-radius: 3px;
+    }
+
+    .main-manage-service {
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+        border-radius: 5px;
+        padding-top: 100px
+    }
+
+    @media screen and (min-width: 1160px) {
+        .main-manage-service {
+            padding-right: 330px;
+            padding-top: 0px !important;
+        }
+    }
+
+    .delete-txt {
+        cursor: pointer;
+        padding-left: 58px;
+        padding-bottom: 14px;
+        direction: ltr;
+    }
+
+    .manage-card {
+        margin-top: auto;
+        margin-bottom: auto;
+        background-color: #fff;
+        border-radius: 5px;
+        width: 95%;
+        padding: 30px;
+    }
+
+    @media screen and (max-width: 990px) {
+        .manage-card {
+            margin-top: 10px;
+        }
+    }
+
+    * {
+        box-shadow: none !important;
+        font-family: vazir !important;
+    }
+</style>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{>supporter/head}}
+
+<head>
+    <title>تیکت‌ها</title>
+    <script src="/js/supporter/tickets.js" type="module"></script>
+</head>
+
+<body>
+    <div class="supreme-container">
+        {{>supporter/sidebar}}
+
+        <div class="page-title d-md-none"><span>تیکت‌های پشتیبانی</span></div>
+
+        <div id="price" class="dashboard ticket">
+            <section class="main lower d-flex align-items-start">
+                <div class="ticket" id="ticketContainer">
+                    <header>
+                        <img src="/image/ticket.png" alt="">
+                        <span class="title">تیکت‌های پشتیبانی</span>
+                    </header>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+    <div class="modal fade" id="ticket-form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="header-body">
+                    <div class="modal-header">
+                        <div>
+                            <header id="ticketHeader">
+
+                            </header>
+                        </div>
+                        <button type="button" class="" data-bs-dismiss="modal" aria-label="Close">بستن</button>
+                    </div>
+                    <div class="d-flex flex-column mt-4" id="ticketMessages">
+                    </div>
+                </div>
+
+                <div class="footer">
+                    <form onsubmit="sendMessage(event)">
+                        <div class="answer-text">
+                            <textarea class="form-control" rows="1" id="reply" name="reply"
+                                placeholder="پاسخ خود را اینجا بنویسید …" oninput="auto_grow(this)"></textarea>
+                        </div>
+
+
+                        <button type="submit" class="btn"><span class="d-none d-md-block">ارسال </span><i
+                                class='fas fa-arrow-left d-md-none'></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

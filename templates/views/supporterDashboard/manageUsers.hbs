@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{>supporter/head}}
+
+<head>
+    <title>مدیریت کاربران</title>
+    <script src="/js/supporter/manageUsers.js" type="module"></script>
+    <script src="/js/supporter/manageUsersModule/purchaseForUser.js" type="module"></script>
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+    <link href="/css/nouislider.min.css" rel="stylesheet">
+    <script src="/js/nouislider.min.js"></script>
+    <script src="/js/wNumb.min.js"></script>
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/owl.carousel.min.js"></script>
+</head>
+
+<body>
+    {{>supporter/sidebar}}
+
+    <div class="main-manage-users">
+        <div class="table-container">
+            <table class="manageUserTable">
+                <thead>
+                    <tr>
+                        <th scope="col">نام</th>
+                        <th scope="col">تاریخ ثبت نام</th>
+                        <th scope="col">تعداد سرویس خریداری شده / فعال</th>
+                        <th scope="col">کل پرداختی ها</th>
+                        <th scope="col">کیف پول</th>
+                        <th scope="col">&nbsp;&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="createService" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-body">
+                    <div id="price" class="dashboard d-flex buy-service withsidebar"
+                        style="padding: 0 !important; margin: 0 !important">
+                        <section id="filter-sidebar" class="sidebar hided"
+                            style="padding: 0 !important; margin: 0 !important">
+                            <button id="filter-btn2" class="d-md-none d-flex" type="button" onclick="filterclick();"
+                                data-bs-toggle="collapse" data-bs-target="#inside">
+                                <img src="/image/filter.png" alt="">
+                                <div class="text">
+                                    <div class="title">فیلتر کردن و جستجو</div>
+                                    <div class="subtitle">هیچ فیلتری اعمال نشده است</div>
+                                </div>
+                                <i id="filter-icon" class="fa fa-angle-up" aria-hidden="true"></i>
+                            </button>
+                            <div class="collapse d-lg-block" id="inside">
+                                <div class="filter">
+                                    <div class="title">انتخاب نوع GPU</div>
+                                    <div class="search" role="search">
+                                        <div method="">
+                                            <input type="text" class="" name="" value="" placeholder="جستجو کنید …"
+                                                onfocus="this.placeholder=''" onblur="this.placeholder='جستجو کنید …'"
+                                                oninput="searchInGpu(event)">
+                                        </div>
+                                    </div>
+                                    <div class="options" id="gpuSelection">
+                                    </div>
+                                </div>
+                                <div class="filter">
+                                    <div class="d-flex">
+                                        <div class="title me-auto mbottom">تعداد گرافیک</div>
+                                        <span class="info" id="gpuCountInfo">1 الی 126 گرافیک</span>
+                                    </div>
+                                    <div class="seprator"></div>
+                                    <div class="slider" id="gpuSlider"></div>
+                                </div>
+                                <div class="filter">
+                                    <div class="d-flex">
+                                        <div class="title me-auto mbottom">میزان رم</div>
+
+                                        <span class="info" id="ramInfo">4 الی 128 گیگابایت</span>
+                                    </div>
+                                    <div class="seprator"></div>
+                                    <div class="slider" id="ramSlider"></div>
+                                </div>
+                                <div class="filter">
+                                    <div class="d-flex">
+                                        <div class="title me-auto mbottom">انتخاب نوع سیستم عامل</div>
+                                    </div>
+                                    <div class="seprator"></div>
+                                    <div class="options" id="osSelection">
+                                    </div>
+                                </div>
+                                <div class="filter">
+                                    <div class="d-flex">
+                                        <div class="title me-auto mbottom">میزان زمان استفاده</div>
+                                        <span class="info" id="timeInfo">2 الی 400 ساعت</span>
+                                    </div>
+                                    <div class="seprator"></div>
+                                    <div class="slider" id="timeSlider"></div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="main" id="products">
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="factors" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-body">
+                    <div id="price" class="dashboard" style="padding: 0 !important;">
+                        <section class="main" id="services" style="padding: 0 !important;">
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{>toastRepository}}
+</body>
+
+<script>
+    function filterclick() {
+        $("#filter-icon").toggleClass("fa-angle-up");
+        $("#filter-icon").toggleClass("fa-angle-down");
+    }
+</script>
+<style>
+    * {
+        font-family: vazir;
+    }
+
+    .input-value {
+        border: none !important;
+        outline: none;
+        background-color: transparent !important;
+        color: black !important;
+    }
+
+
+    .dropdown-tools {
+        background-color: #fff;
+        left: 17px;
+        border: solid 0.5px #ccc;
+        padding: 5px;
+        margin-top: 21px;
+        position: absolute;
+        border-radius: 8px;
+    }
+
+    .dropdown-tools p {
+        text-align: right;
+        padding: 8px;
+        border-radius: 8px;
+    }
+
+    .dropdown-tools p {
+        text-align: right;
+        padding: 5px;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    .dropdown-tools p:hover {
+        background-color: #f3f3f3;
+    }
+
+    @media screen and (min-width: 1160px) {
+        .main-manage-users {
+            padding-right: 330px;
+            padding-top: 0px;
+        }
+    }
+
+    .manageUserTable th:nth-child(6) {
+        width: 30px;
+    }
+
+    .manageUserTable th:nth-child(3) {
+        width: 205px !important;
+    }
+
+    @media screen and (max-width: 1160px) {
+        .main-manage-users {
+            padding-top: 80px;
+        }
+    }
+
+    .table-container {
+        padding: 10px 15px;
+    }
+
+    .manageUserTable {
+        font-family: vazir;
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    .manageUserTable tr {
+        background-color: #f8f8f8;
+        border: 1px solid #ddd;
+        padding: .35em;
+    }
+
+    .manageUserTable th,
+    .manageUserTable td {
+        padding: .625em;
+        text-align: center;
+    }
+
+    .manageUserTable th {
+        font-size: .85em;
+        text-transform: uppercase;
+    }
+
+    @media screen and (max-width: 670px) {
+        .manageUserTable {
+            border: 0;
+        }
+
+        .manageUserTable thead {
+            border: none;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+        }
+
+        .manageUserTable tr {
+            border-bottom: 3px solid #ddd;
+            display: block;
+            margin-bottom: .625em;
+        }
+
+        .manageUserTable td {
+            border-bottom: 1px solid #ddd;
+            display: block;
+            font-size: .8em;
+            text-align: right;
+        }
+
+        .manageUserTable td::before {
+            content: attr(data-label);
+            float: left;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .manageUserTable td:last-child {
+            border-bottom: 0;
+        }
+    }
+</style>
+
+</html>

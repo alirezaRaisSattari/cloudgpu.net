@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{>dashboard/head}}
+
+<head>
+    <title>خرید سرویس</title>
+    <!--===================== lib css files =====================-->
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+    <link href="/css/nouislider.min.css" rel="stylesheet">
+    <script src="/js/nouislider.min.js"></script>
+    <script src="/js/wNumb.min.js"></script>
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/owl.carousel.min.js"></script>
+    <script type="module" src="/js/dashboard/purchaseGpuService.js"></script>
+</head>
+
+<body class="relative-body">
+    <!--===================== header =====================-->
+    {{>dashboard/sidebar}}
+
+    <div class="page-title d-md-none"><span>خریداری سرویس پردازشی</span></div>
+    <div id="price" class="dashboard d-flex buy-service withsidebar">
+        <section id="filter-sidebar" class="sidebar hided">
+            <button id="filter-btn2" class="d-md-none d-flex" type="button" onclick="filterclick();"
+                data-bs-toggle="collapse" data-bs-target="#inside">
+                <img src="/image/filter.png" alt="">
+                <div class="text">
+                    <div class="title">فیلتر کردن و جستجو</div>
+                    <div class="subtitle">هیچ فیلتری اعمال نشده است</div>
+                </div>
+                <i id="filter-icon" class="fa fa-angle-up" aria-hidden="true"></i>
+            </button>
+            <div class="collapse d-lg-block" id="inside">
+                <div class="filter">
+                    <div class="title">انتخاب نوع GPU</div>
+                    <div class="search" role="search">
+                        <div method="">
+                            <input type="text" class="" name="" value="" placeholder="جستجو کنید …"
+                                onfocus="this.placeholder=''" onblur="this.placeholder='جستجو کنید …'"
+                                oninput="searchInGpu(event)">
+                        </div>
+                    </div>
+                    <div class="options" id="gpuSelection">
+                    </div>
+                </div>
+                <div class="filter">
+                    <div class="d-flex">
+                        <div class="title me-auto mbottom">تعداد گرافیک</div>
+                        <span class="info" id="gpuCountInfo">1 الی 126 گرافیک</span>
+                    </div>
+                    <div class="seprator"></div>
+                    <div class="slider" id="gpuSlider"></div>
+                </div>
+                <div class="filter">
+                    <div class="d-flex">
+                        <div class="title me-auto mbottom">میزان رم</div>
+
+                        <span class="info" id="ramInfo">4 الی 128 گیگابایت</span>
+                    </div>
+                    <div class="seprator"></div>
+                    <div class="slider" id="ramSlider"></div>
+                </div>
+                <div class="filter">
+                    <div class="d-flex">
+                        <div class="title me-auto mbottom">انتخاب نوع سیستم عامل</div>
+                    </div>
+                    <div class="seprator"></div>
+                    <div class="options" id="osSelection">
+                    </div>
+                </div>
+                <div class="filter">
+                    <div class="d-flex">
+                        <div class="title me-auto mbottom">میزان زمان استفاده</div>
+                        <span class="info" id="timeInfo">2 الی 400 ساعت</span>
+                    </div>
+                    <div class="seprator"></div>
+                    <div class="slider" id="timeSlider"></div>
+                </div>
+            </div>
+
+        </section>
+        <section class="main" id="products">
+        </section>
+
+    </div>
+
+    {{>toastRepository}}
+
+    <style>
+        .input-value {
+            border: none !important;
+            outline: none;
+            background-color: transparent !important;
+            color: black !important;
+        }
+    </style>
+</body>
+<script>
+    function filterclick() {
+        $("#filter-icon").toggleClass("fa-angle-up");
+        $("#filter-icon").toggleClass("fa-angle-down");
+    }
+</script>
+
+</html>

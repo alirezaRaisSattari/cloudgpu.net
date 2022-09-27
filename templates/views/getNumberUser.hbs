@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{>publicHead}}
+
+<head>
+    <script>
+        const token = localStorage.getItem("token")
+        if (token) { window.location.href = "/dashboard"; }
+    </script>
+    <script type="module" src="js/page/getNumberUser.js"></script>
+    <title>ورود و عضویت </title>
+</head>
+
+<body>
+    <section class="reg-banner" id="step1">
+        <div class="leaf" id="leaf1"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf2"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf4"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf5"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf6"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf7"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf8"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf9"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf10"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf11"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf12"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf13"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf14"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf15"><img src="/image/leaf.png" alt=""></div>
+        <a class="banner-btn " href="#"></a>
+        <div class="regform">
+            <header>
+                <a class="float-start" href="#">
+                    <img src="/image/logo.png" alt="">
+                </a>
+                <a class="float-start" href="#">
+                    <div class="title"> ابر‌گرافیک</div>
+                    <div class="subtitle"> ارائه راهکارهای پردازش سریع</div>
+                </a>
+                <div class="float-end" onclick="window.location.href = '/'">
+                    <a href="/"><i class="fa fa-arrow-left"></i></a>
+                </div>
+            </header>
+            <form class="gray" onsubmit="toStep2(event)">
+                <div id="user-login"><img src="/image/login.png" alt=""></div>
+                <div class="title">ورود و عضویت</div>
+                <div class="subtitle">لطفا برای ورود به حساب کاربری و یا ایجاد حساب کاربری جدید شماره تلفن همراه خود را
+                    وارد نمایید.</div>
+                <div class="phone-number" id="phone-number">
+                    <label for="phone" onclick="document.getElementById('phone').focus();"
+                        class="form-label phone-label pr-3">شماره تلفن همراه</label>
+                    <input id="phone" type="number" placeholder="09123456789" name="phone" />
+                </div>
+                <div id="submitBtnForm" class="d-flex justify-content-around px-4">
+                    <button id="submitBtn" class="btn" type="submit">تایید</button>
+                    <a class="login-btn" href="/login_by_password">ورود با کلمه عبور</a>
+                </div>
+            </form>
+        </div>
+    </section>
+    {{>toastRepository}}
+    <div id="step2" style="display: none;">{{>otpCode}}</div>
+</body>
+
+</html>

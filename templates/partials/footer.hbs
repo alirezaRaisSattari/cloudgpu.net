@@ -1,0 +1,114 @@
+<footer id="main-footer">
+    <div class="d-flex footer-section">
+        <div class="article">
+            <a href="#"><img src="/image/logo.png" alt=""></a>
+            <header>درباره ابر‌گرافیک</header>
+            <p>
+                ابر‌گرافیک زیر ساخت‌های پیچیده سخت افزاری را در قالب یک سامانه آسان به شما عرضه میکند .
+
+                با یک رابط کاربری آسان قدرت محاسباتی درخواستی خود را انتخاب و از آفرینش لذت ببرید
+            </p>
+
+        </div>
+        <div class="social d-flex flex-column justify-content-center">
+            <header>شبکه‌های اجتماعی</header>
+            <p>ما را در شبکه‌های اجتماعی دنبال کنید</p>
+            <div class="d-flex flex-column justify-content-center">
+                <a href="https://instagram.com/greenrender" class="">
+                    <i class="fab fa-instagram mx-auto"></i>
+                    <span>اینستاگرام</span>
+                </a>
+            </div>
+            <div>
+                <a href="https://www.linkedin.com/company/greenrender/">
+                    <i class="fab fa-linkedin"></i>
+                    <span>لینکدین</span>
+                </a>
+            </div>
+            <div>
+                <a href="https://twitter.com/Greenrender">
+                    <i class="fab fa-twitter"></i>
+                    <span>توییتر</span>
+                </a>
+            </div>
+        </div>
+        <div class="brand d-flex justify-content-between">
+            <a href="#"><img src="/image/samandehi.png" alt=""></a>
+            <a href="#"><img src="/image/namad.png" alt=""></a>
+            <a href="#"><img src="/image/enemad.png" alt=""></a>
+        </div>
+    </div>
+    <div class="footernav">
+        <nav class="navbar navbar-expand-xl navbar-dark ">
+            <div class="container-fluid">
+
+                <div class="collapse navbar-collapse" id="navbarFooterContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" id="introduce_services1" aria-current="page"
+                                href="/#intro-services">معرفی
+                                سرویس</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="costs1" aria-current="page" href="/costs">سرویس‌ها</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="about_us1" aria-current="page" href="/about_us">درباره ما</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="contact_us1" aria-current="page" href="/contact_us">تماس با ما</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="FAQ1" aria-current="page" href="/FAQ">پرسش‌های متداول</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="partnership1" aria-current="page" href="/partnership">همکاری با
+                                ما</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="blog1" aria-current="page" href="/blog">وبلاگ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copywrite">تمامی حقوق این وبسایت برای ابر‌گرافیک محفوظ میباشد</div>
+
+            <div id="title" style="display: none;">{{name}}</div>
+        </nav>
+    </div>
+</footer>
+
+<script>
+    const introduce_services1 = document.getElementById("introduce_services1")
+    const costs1 = document.getElementById("costs1")
+    const about_us1 = document.getElementById("about_us1")
+    const contact_us1 = document.getElementById("contact_us1")
+    const FAQ1 = document.getElementById("FAQ1")
+    const partnership1 = document.getElementById("partnership1")
+    const blog1 = document.getElementById("blog1")
+
+    switch (title) {
+        case "introduce_services":
+            introduce_services1.classList.add("active")
+            break;
+        case "costs":
+            costs1.classList.add("active")
+            break;
+        case "about_us":
+            about_us1.classList.add("active")
+            break;
+        case "contact_us":
+            contact_us1.classList.add("active")
+            break;
+        case "FAQ":
+            FAQ1.classList.add("active")
+            break;
+        case "partnership":
+            partnership1.classList.add("active")
+            break;
+        case "blog":
+            blog1.classList.add("active")
+            break;
+        default:
+    }
+</script>

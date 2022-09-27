@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{>general}}
+{{>publicHead}}
+
+<head>
+    <title>وبلاگ</title>
+    <script type="module" src="/js/page/blog.js" defer></script>
+</head>
+
+
+<body class="relative-body">
+    {{>header}}
+    <section class="blog-banner row">
+        <div class="leaf" id="leaf1"><img src="image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf2"><img src="image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf4"><img src="image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf5"><img src="image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf6"><img src="image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf7"><img src="image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf8"><img src="image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf9"><img src="image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf10"><img src="image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf11"><img src="image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf12"><img src="image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf13"><img src="image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf14"><img src="image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf15"><img src="image/leaf.png" alt=""></div>
+        <div class="col-12 col-lg-7">
+            <div class="title">وبلاگ ابر‌گرافیک</div>
+            <div class="subtitle mr-0 pr-0">جدید‌ترین اخبار‌ها و مقالات در زمینه داده کاوی و پردازش‌های سریع</div>
+        </div>
+
+        <div class=" search col-12 col-lg-5" role="search">
+            <form action="" method="">
+                <input type="text" class="form-control" name="" value="" placeholder="جستجو در وبلاگ ابر‌گرافیک"
+                    onfocus="this.placeholder=''" onblur="this.placeholder='جستجو در وبلاگ ابر‌گرافیک'">
+            </form>
+        </div>
+    </section>
+    <section class="category">
+        <span class="title">دسته بندی‌ها :</span>
+        <!--===================== category larg screen =====================-->
+        <span class="d-none d-md-inline" id="categories">
+        </span>
+
+        <!--===================== category mobile =====================-->
+        <div class="dropdown">
+            <button type="button" class="btn dropdown-toggle d-md-none" data-bs-toggle="dropdown">
+                همه دسته‌ها
+            </button>
+            <ul class="dropdown-menu d-md-none" id="mobileCategories">
+            </ul>
+        </div>
+    </section>
+
+
+    <div id="bannerLoading">
+    </div>
+    <div class="blog owl-carousel owl-theme" id="banner">
+    </div>
+    <section class="blog-post row mb-5" id="blogContainer">
+    </section>
+    <div class="paging justify-content-center" id="paginator">
+        <div class="prev">
+            <a href="#">
+                <span>
+                    <i class="fa fa-angle-left"></i>
+                </span>
+            </a>
+        </div>
+        <div class="pages d-flex">
+            <div class="page active">
+                <a href="#">
+                    1
+                </a>
+            </div>
+            <div class="page">
+                <a href="#">
+                    2
+                </a>
+            </div>
+            <div class="page">
+                <a href="#">
+                    3
+                </a>
+            </div>
+            <div class="page">
+                <a href="#">
+                    4
+                </a>
+            </div>
+            <div class="page">
+                <a href="#">
+                    5
+                </a>
+            </div>
+        </div>
+        <div class="next">
+            <a href="#">
+                <span>
+                    <i class="fa fa-angle-right"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    {{>footer}}
+    {{>toastRepository}}
+</body>
+<script>
+
+</script>
+
+</html>

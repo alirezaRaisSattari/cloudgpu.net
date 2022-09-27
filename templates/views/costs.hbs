@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{>publicHead}}
+
+<head>
+    <title>سرویس‌ها</title>
+    <script type="module" src="/js/page/costs.js" defer></script>
+</head>
+
+
+<body class="relative-body">
+    <!--===================== header =====================-->
+    {{>header}}
+    <section class="top-banner">
+        <div class="leaf" id="leaf1"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf2"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf3"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf4"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf5"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf6"><img src="/image/leaf.png" alt=""></div>
+        <div class="title">سرویس‌ها</div>
+        <div class="subtitle">ما پلن‌ها و سرویس‌های متعددی را با توجه به نیاز شما آماده ساختیم</div>
+    </section>
+    <div id="price" class="d-flex">
+        <section id="filter-sidebar" class="sidebar hided">
+            <button id="filter-btn" class="d-md-none" type="button" onclick="filterclick();" data-bs-toggle="collapse"
+                data-bs-target="#inside">
+                <i id="filter-icon" class="fa fa-angle-up" aria-hidden="true"></i>
+                <div>فیلتر کردن سرویس‌ها</div>
+            </button>
+            <div class="collapse d-md-block" id="inside">
+                <div class="filter">
+                    <div class="title">انتخاب نوع GPU</div>
+                    <div class="search" role="search">
+                        <form action="" method="">
+                            <input type="text" class="" name="" value="" placeholder="جستجو کنید …"
+                                onfocus="this.placeholder=''" onblur="this.placeholder='جستجو کنید …'"
+                                oninput="searchInGpu(event)">
+                        </form>
+                    </div>
+                    <div class="options" id="gpuSelection">
+
+                    </div>
+                </div>
+                <div class="filter">
+                    <div class="d-flex">
+                        <div class="title me-auto mbottom">تعداد گرافیک</div>
+                        <span class="info" id="gpuCountInfo">1 الی 126 گرافیک</span>
+                    </div>
+                    <div class="seprator"></div>
+                    <div class="slider" id="gpuSlider"></div>
+                </div>
+                <div class="filter">
+                    <div class="d-flex">
+                        <div class="title me-auto mbottom">میزان رم</div>
+                        <span class="info" id="ramInfo">4 الی 128 گیگابایت</span>
+                    </div>
+                    <div class="seprator"></div>
+                    <div class="slider" id="ramSlider"></div>
+                </div>
+                <div class="filter">
+                    <div class="d-flex">
+                        <div class="title me-auto mbottom">انتخاب نوع سیستم عامل</div>
+                    </div>
+                    <div class="seprator"></div>
+                    <div class="options" id="osSelection">
+
+                    </div>
+                </div>
+                <div class="filter">
+                    <div class="d-flex">
+                        <div class="title me-auto mbottom">میزان زمان استفاده</div>
+                        <span class="info" id="timeInfo">2 الی 400 ساعت</span>
+                    </div>
+                    <div class="seprator"></div>
+                    <div class="slider" id="timeSlider"></div>
+                </div>
+            </div>
+
+        </section>
+        <section class="main" id="products">
+        </section>
+
+    </div>
+
+    {{>footer}}
+    {{>toastRepository}}
+
+    <script>
+        function filterclick() {
+            $("#filter-icon").toggleClass("fa-angle-up");
+            $("#filter-icon").toggleClass("fa-angle-down");
+        }
+    </script>
+</body>
+
+</html>

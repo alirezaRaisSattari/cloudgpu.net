@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{>publicHead}}
+
+<head>
+    <title>پرسش‌های متداول</title>
+    <script type="module" src="/js/page/faqContent.js" defer></script>
+</head>
+
+<body>
+    <!--===================== header =====================-->
+    {{>header}}
+    <section class="top-banner">
+        <div class="leaf" id="leaf1"><img src="image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf2"><img src="image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf3"><img src="image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf4"><img src="image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf5"><img src="image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf6"><img src="image/leaf.png" alt=""></div>
+        <div class="title">پرسش های متداول</div>
+        <div class="subtitle">مشکلی پیش آمده ؟ سوالی دارید ؟ اینجا پاسخ خود را بیابید</div>
+    </section>
+    <section class="help faq row">
+        <div class="col-12 col-lg-8 main" id="faqMain">
+            <header class="d-md-none">
+                <img src="image/right-arrow.png" alt="">
+                <span class="title">ورود و ثبت نام</span>
+            </header>
+        </div>
+        <div class="title-section down d-md-none">
+            <header>
+                <img src="image/right-arrow.png" alt="">
+                <span class="title">پاسخ سوال خود را یافت نکردید ؟</span>
+                <img src="image/left-arrow.png" alt="">
+            </header>
+            <a href="#" class="green-btn">درخواست مشاوره رایگان</a>
+
+        </div>
+        <div class="col-12 col-lg-4 sidebar">
+            <div class="title">دسته بندی پرسش‌ها</div>
+            <ul class="nav flex-column" id="titleList">
+            </ul>
+        </div>
+    </section>
+    <section class="d-md-none help">
+        <div class="main">
+            <div class="search" role="search">
+                <header>
+                    <img src="image/right-arrow.png" alt="">
+                    <span class="title">چه کمکی میتونیم به شما بکنیم ؟</span>
+                </header>
+                <form action="" method="">
+                    <input type="text" class="form-control" name="" value=""
+                        placeholder="عنوان مشکل و یا سوال خود را جستجو کنید …" onfocus="this.placeholder=''"
+                        onblur="this.placeholder='عنوان مشکل و یا سوال خود را جستجو کنید …'">
+                </form>
+            </div>
+            <div class="title-section">
+                <img src="image/right-arrow.png" alt="">
+                <span class="title">جدید‌ترین تغییرات ابر‌گرافیک</span>
+            </div>
+            <a class="new-post" href="#">افزایش ظرفیت پردازشی به ۷ ترافلاپس</a>
+            <a class="new-post" href="#">اضافه شدن خدمات مشاوره تلفنی رایگان به ابر‌گرافیک</a>
+            <a class="new-post" href="#">به روز رسانی وبسایت به نسخه پایدار ۲</a>
+            <a class="new-post" href="#">انتشار اپلیکیشن‌های Android و Android Tv</a>
+            <a class="new-post" href="#">قرعه کشی ماهانه ابر‌گرافیک</a>
+        </div>
+    </section>
+
+    {{>footer}}
+    {{>toastRepository}}
+
+</body>
+
+</html>

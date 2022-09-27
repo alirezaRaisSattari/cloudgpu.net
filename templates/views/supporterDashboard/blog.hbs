@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{>supporter/head}}
+
+<head>
+    <title>تنظیمات وبلاگ</title>
+    <script src="/js/supporter/blog.js" type="module"></script>
+
+    <link href="/quill/quill.snow.css" rel="stylesheet">
+    <link href="/quill/quill.core.css" rel="stylesheet">
+    <script src="/quill/quill.core.js"></script>
+    <script src="/quill/quill.js"></script>
+    <script src="/quill/quill.min.js"></script>
+    <script src="/js/image-resize.min.js"></script>
+</head>
+
+<body>
+    {{>supporter/sidebar}}
+    <form onsubmit="postBlog(event)" class="main-blog d-flex flex-column justify-items-center">
+
+        <button type="button" class="mx-auto px-3 py-1 mt-4 create-category" data-bs-toggle="modal"
+            data-bs-target="#send-cv">ساخت دسته بندی جدید</button>
+        <select placeholder="موضوع" required class="labels mt-1 mx-3 w-95 mt-3 mb-1" id="selectOption">
+            <option value="" disabled selected>دسته بندی مورد نظر را انتخاب کنید</option>
+        </select>
+        <div class="labels col-lg-6 w-50">
+            <p class="mt-2">عکس کاور</p>
+            <input required placeholder="عنوان" type="file" class="px-2" id="cover-image"></input>
+        </div>
+        <div class="labels col-lg-6 w-50">
+            <p class="mt-2">عنوان</p>
+            <input required placeholder="عنوان" class="creator-input px-2" id="newTitle"></input>
+        </div>
+        <div id="editor-container">
+            <b>write here, </b>
+            <b>right here</b>
+        </div>
+
+        <div id="createBlog"></div>
+        <div class="labels mt-4 d-flex justify-content-around">
+            <p class="my-auto font-size-custom">در پرسش های متداول قرار بگیرد؟</p>
+            <input class="my-auto hover-pointer" id="switchFaq" type="checkbox" />
+        </div>
+        <button class="submit-btn w-50 mx-auto mt-4" id="createBlogBtn" type="submit">ارسال</button>
+    </form>
+
+    <form onsubmit="deleteBlog(event)" class="main-blog mb-5 d-flex flex-column justify-items-center mt-3">
+        <h5>حذف وبلاگ</h5>
+        <select placeholder="وبلاگ مورد نظر را انتخاب کنید" required class="labels mt-1 mx-3 w-95 mt-3 mb-1"
+            id="blogSelection">
+            <option value="" disabled selected>وبلاگ مورد نظر را انتخاب کنید</option>
+        </select>
+        <div id="deleteBlog"></div>
+        <button type="submit" id="deleteBlogBtn" class="delete-btn mx-auto my-3">حذف</button>
+    </form>
+    <form onsubmit="postBanner(event)" class="main-blog mb-3 d-flex flex-column justify-items-center">
+        <h5>ساخت بنر وبلاگ</h5>
+        <div class="d-flex justify-content-around align-content-center">
+            <input required class="my-auto" id="bannerFile" type="file">
+            <div class="labels col-lg-6 mt-1">
+                <p>عنوان بنر</p>
+                <input required id="bannerTitle" placeholder="عنوان بنر" class="creator-input px-2"></input>
+            </div>
+        </div>
+        <div id="createBanner"></div>
+        <button id="createBannerBtn" type="submit" class="submit-btn mx-auto my-3">ارسال</button>
+    </form>
+    <form onsubmit="deleteBanner(event)" class="main-blog mb-5 d-flex flex-column justify-items-center">
+        <h5>حذف بنر وبلاگ</h5>
+        <select placeholder="عنوان مورد نظر را انتخاب کنید" required class="labels mt-1 mx-3 w-95 mt-3 mb-1"
+            id="bannerSelection">
+            <option value="" disabled selected>عنوان مورد نظر را انتخاب کنید</option>
+        </select>
+        <div id="deleteBanner"></div>
+        <button type="submit" id="deleteBannerBtn" class="delete-btn mx-auto my-3">حذف</button>
+    </form>
+
+    <div class="modal fade" id="send-cv" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-header">
+                    <header class="myheader">
+                        <img src="/image/right-arrow.png" alt="">
+                        <span class="title">لطفا اطلاعات مورد نظر را وارد نمایید</span>
+                        <img src="/image/left-arrow.png" alt="">
+                    </header>
+                </div>
+                <div class="modal-body">
+                    <form onsubmit="createCategory(event)" class="gray">
+                        <div>
+                            <label for="fullname" class="form-label">نام دسته بندی</label>
+                            <input type="text" class="form-control" required id="fullName" name="fullname">
+                        </div>
+
+                        <div id="createCategory"></div>
+                        <button type="submit" id="createCategoryBtn" class="btn form-control">ارسال</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<style>
+    .dropdown-toggle {
+        height: 40px;
+        border-radius: 10px;
+        margin-top: 32px;
+        background-color: transparent !important;
+        border: solid 0.5px #a9a9a9 !important;
+    }
+
+    .font-size-custom {
+        font-size: 13px !important;
+    }
+
+    .center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    input[type="checkbox"] {
+        position: relative;
+        width: 60px;
+        height: 30px;
+        -webkit-appearance: none;
+        background: #c6c6c6;
+        outline: none;
+        border-radius: 20px;
+        box-shadow: inset 0 0 5px rgba(255, 0, 0, 0.2);
+        transition: 0.7s;
+    }
+
+    input:checked[type="checkbox"] {
+        background: #03a9f4;
+    }
+
+    input[type="checkbox"]:before {
+        content: '';
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border-radius: 20px;
+        top: 0;
+        left: 0;
+        background: #ffffff;
+        transform: scale(1.1);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: .5s;
+    }
+
+    input:checked[type="checkbox"]:before {
+        left: 30px;
+    }
+
+    .option-btn {
+        width: 195px;
+        direction: ltr;
+        position: relative;
+        margin-right: 353px;
+        font-size: 20px;
+    }
+
+    #price.buy-service .sidebar {
+        padding-right: 0;
+    }
+
+    .manage-card {
+        margin-top: auto;
+        margin-bottom: auto;
+        background-color: #fff;
+        border-radius: 5px;
+        width: 95%;
+        padding: 30px;
+    }
+
+    .main-manage-service {
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+        border-radius: 5px;
+        padding-top: 100px
+    }
+
+    @media screen and (min-width: 1160px) {
+        .main-manage-service {
+            padding-right: 330px;
+            padding-top: 0px !important;
+        }
+    }
+
+    @media screen and (max-width: 990px) {
+        .manage-card {
+            margin-top: 10px;
+        }
+    }
+
+    * {
+        font-family: vazir !important;
+    }
+
+    .labels {
+        font-size: 11px;
+    }
+
+    .input-label {
+        padding-right: 4px;
+    }
+
+    .creator-input {
+        border-radius: 9px;
+        height: 40px;
+        width: 100%;
+        border: solid 0.5px #a9a9a9;
+        font-size: 13px;
+    }
+
+    .submit-btn {
+        height: 43px !important;
+        font-size: 13px;
+        max-width: 230px;
+    }
+
+    * {
+        font-family: vazir !important;
+    }
+
+    .create-category {
+        border: none;
+        width: 195px;
+        border-radius: 14px;
+        background-color: var(--Kiwi-green);
+    }
+
+    .labels {
+        font-size: 14px;
+        margin-right: 20px !important;
+        margin-left: 20px !important;
+    }
+
+    .creator-input {
+        border: solid 0.5px #a9a9a9 !important;
+        border-radius: 10px !important;
+        height: 40px;
+        width: 100%;
+        font-size: 13px;
+        border: none;
+    }
+
+    .ql-toolbar.ql-snow {
+        direction: ltr;
+        margin-top: 10px;
+    }
+
+    #editor-container {
+        min-height: 600px;
+        direction: ltr;
+    }
+
+    @media only screen and (max-width: 998px) {
+        .w-50 {
+            width: 87% !important;
+        }
+
+        .create-category {
+            margin-top: 80px !important;
+        }
+    }
+
+    @media only screen and (min-width: 998px) {
+
+        .labels {
+            margin-top: 0;
+        }
+
+        .main-blog {
+            margin: 10px;
+            margin-right: 340px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+        }
+    }
+</style>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{>publicHead}}
+
+<head>
+    <title>ورود و عضویت</title>
+    <script type="module" src="/js/supporter/login.js"></script>
+</head>
+
+<body>
+
+    <section class="reg-banner">
+        <div class="leaf" id="leaf1"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf2"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf4"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf5"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf6"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf7"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf8"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf9"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf10"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf11"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf12"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf13"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf14"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf15"><img src="/image/leaf.png" alt=""></div>
+        <a class="banner-btn " href="#"></a>
+        <div class="regform reg2">
+            <header>
+                <a class="float-start" href="#">
+                    <img src="/image/logo.png" alt="">
+                </a>
+                <a class="float-start" href="#">
+                    <div class="title"> ابر‌گرافیک</div>
+                    <div class="subtitle"> ارائه راهکارهای پردازش سریع</div>
+                </a>
+                <div class="float-end" onclick="history.back()">
+                    <a href="/login"><i class="fa fa-arrow-left"></i></a>
+                </div>
+            </header>
+            <form onsubmit="loginAPI(event)" class="gray">
+                <div id="user-login"><img src="/image/login.png" alt=""></div>
+                <div class="title">ورود و عضویت</div>
+                <div class="subtitle">لطفا برای ورود به حساب کاربری نام کاربری و کلمه عبور خود را وارد نمایید.
+                </div>
+                <div class="mb-md-3 mt-3">
+                    <label for="email" class="form-label">نام کاربری</label>
+                    <input type="text" class="form-control" id="username" placeholder="" name="email">
+                </div>
+                <div class="mb-3 pass">
+                    <label for="pwd" class="form-label">کلمه عبور</label>
+                    <input type="password" class="form-control" id="password" placeholder="" name="pswd">
+                    <span class="showpass" onclick="showpassword()"><i class="fa fa-eye" id="togglePassword"></i></span>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn mx-auto">ورود به حساب کاربری</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    {{>toastRepository}}
+
+</body>
+<script>
+    function showpassword() {
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+        var element = document.getElementById("togglePassword");
+        element.classList.toggle("fa-eye");
+        element.classList.toggle("fa-eye-slash");
+    }
+</script>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{>publicHead}}
+
+<head>
+    <title>ارتباط با ما</title>
+    <script type="module" src="/js/page/contactUs.js" defer></script>
+</head>
+
+
+<body>
+    <!--===================== header =====================-->
+    {{>header}}
+    <section class="top-banner">
+        <div class="leaf" id="leaf1"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf2"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf3"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf4"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf5"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf6"><img src="/image/leaf.png" alt=""></div>
+        <div class="title">تماس باما</div>
+        <div class="subtitle">مشکلی پیش آمده ؟ سوالی دارید ؟ اینجا از ما بپرسید</div>
+    </section>
+    <section class="contactus row">
+        <div class="p-md-5 col-12 col-lg-5">
+            <form onsubmit="event.preventDefault(); postApi(event);" class="gray" id="mainForm">
+                <div class="mb-md-3 mb-1">
+                    <label for="fullname" class="form-label">نام و نام خانوادگی / نام شرکت یا استارتاپ</label>
+                    <input type="text" class="form-control" id="fullName" name="fullname" required>
+                </div>
+                <div class="mb-md-3 mt-md-3 mb-4">
+                    <label for="email" class="form-label">ایمیل</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="mb-md-3 mt-md-5 mb-2">
+                    <label for="comment" class="form-label">متن پیام</label>
+                    <textarea class="form-control" rows="9" id="comment" name="text" oninput="auto_grow_label(this)"
+                        required></textarea>
+                </div>
+                <button type="submit" class="btn form-control" id="submitBtn0">ارسال</button>
+            </form>
+        </div>
+        <div class="p-md-5 col-12 col-lg-7 d-lg-block d-none" style="direction: ltr;">
+            <img src="/image/asset-1.svg" alt="">
+        </div>
+    </section>
+    {{>footer}}
+    {{>toastRepository}}
+
+    <script>
+        function auto_grow_label(element) {
+            element.style.height = "5px";
+            element.style.height = (element.scrollHeight + 5) + "px";
+        }
+    </script>
+</body>
+
+</html>

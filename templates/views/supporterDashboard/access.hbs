@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{>supporter/head}}
+
+<head>
+    <title>دسترسی‌های پشتیبان</title>
+</head>
+
+<body>
+    {{>supporter/sidebar}}
+
+    <div class="main-access">
+        <div class="access-card mx-auto">
+            <div class="d-flex justify-content-between my-4 mt-2">
+                <p>دسترسی به مدیریت پشتیبان ها</p>
+                <p class="text-danger  px-4" id="accessAddSupporter"></p>
+            </div>
+            <div class="d-flex justify-content-between my-4 mt-5">
+                <p>دسترسی به مدیریت سرویس‌ها</p>
+                <p class="text-danger px-4" id="accessServices"></p>
+            </div>
+            <div class="d-flex justify-content-between my-4 mt-5">
+                <p>دسترسی به پرسش‌های متداول</p>
+                <p class="text-danger px-4" id="accessFaq"></p>
+            </div>
+            <div class="d-flex justify-content-between my-4 mt-5">
+                <p>دسترسی به تیکت‌ها</p>
+                <p class="text-danger px-4" id="accessTicket"></p>
+            </div>
+            <div class="d-flex justify-content-between my-4 mt-5">
+                <p>دسترسی به رزومه‌ها</p>
+                <p class="text-danger px-4" id="accessCv"></p>
+            </div>
+            <div class="d-flex justify-content-between my-2 mt-5">
+                <p>دسترسی به ارتباط با ما</p>
+                <p class="text-danger px-4" id="accessContactUs"></p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    const accessAddSupporter = document.getElementById("accessAddSupporter");
+    const accessServices = document.getElementById("accessServices")
+    const accessFaq = document.getElementById("accessFaq")
+    const accessTicket = document.getElementById("accessTicket")
+    const accessCv = document.getElementById("accessCv")
+    const accessContactUs = document.getElementById("accessContactUs")
+
+    accessAddSupporter.innerHTML = localStorage.getItem("accessAddSupporter") ? 'دارد' : 'ندارد';
+    accessServices.innerHTML = localStorage.getItem("accessServices") ? 'دارد' : 'ندارد';
+    accessFaq.innerHTML = localStorage.getItem("accessFaq") ? 'دارد' : 'ندارد';
+    accessTicket.innerHTML = localStorage.getItem("accessTicket") ? 'دارد' : 'ندارد';
+    accessCv.innerHTML = localStorage.getItem("accessCv") ? 'دارد' : 'ندارد';
+    accessContactUs.innerHTML = localStorage.getItem("accessContactUs") ? 'دارد' : 'ندارد';
+</script>
+<style>
+    .access-card {
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 30px;
+    }
+
+    .main-access {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        border-radius: 5px;
+    }
+
+    @media screen and (min-width: 1160px) {
+        .main-access {
+            padding-right: 330px;
+        }
+    }
+
+    p {
+        font-family: vazir;
+    }
+</style>
+
+</html>

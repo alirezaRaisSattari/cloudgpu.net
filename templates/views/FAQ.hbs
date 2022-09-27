@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{>publicHead}}
+
+<head>
+    <title>پرسش‌های متداول</title>
+    <script type="module" src="/js/page/FAQ.js" defer></script>
+</head>
+
+<body>
+    <!--===================== header =====================-->
+    {{>header}}
+    <section class="top-banner">
+        <div class="leaf" id="leaf1"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf2"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf3"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf4"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf5"><img src="/image/leaf.png" alt=""></div>
+        <div class="leaf" id="leaf6"><img src="/image/leaf.png" alt=""></div>
+        <div class="title">پرسش های متداول</div>
+        <div class="subtitle">مشکلی پیش آمده ؟ سوالی دارید ؟ اینجا پاسخ خود را بیابید</div>
+    </section>
+    <section class="help row">
+        <div class="col-12 col-lg-9 main">
+            <div class="search" role="search">
+                <header class="d-md-none">
+                    <img src="/image/right-arrow.png" alt="">
+                    <span class="title">چه کمکی میتونیم به شما بکنیم ؟</span>
+                </header>
+                <form action="" method="">
+                    <input type="text" class="form-control" name="" value=""
+                        placeholder="عنوان مشکل و یا سوال خود را جستجو کنید …" onfocus="this.placeholder=''"
+                        onblur="this.placeholder='عنوان مشکل و یا سوال خود را جستجو کنید …'">
+                </form>
+            </div>
+            <div class="title-section">
+                <img src="/image/right-arrow.png" alt="">
+                <span class="title">جدید‌ترین تغییرات ابر‌گرافیک</span>
+            </div>
+            <div id="lastModify">
+            </div>
+            <div class="title-section down d-none d-md-block">
+                <img src="/image/right-arrow.png" alt="">
+                <span class="title">نیاز به مشاوره دارید یا پاسخ سوال خود را یافت نکردید</span>
+                <a href="/contact_us" class="green-btn">درخواست مشاوره رایگان</a>
+            </div>
+        </div>
+        <div class="col-12 col-lg-3 sidebar">
+            <div class="title">دسته بندی پرسش‌ها</div>
+            <ul class="nav flex-column" id="titleList">
+            </ul>
+        </div>
+        <div class="title-section down d-md-none">
+            <header>
+                <img src="/image/right-arrow.png" alt="">
+                <span class="title">پاسخ سوال خود را یافت نکردید ؟</span>
+                <img s rc="/image/left-arrow.png" alt="">
+            </header>
+            <a href="/contact_us" class="green-btn">درخواست مشاوره رایگان</a>
+
+        </div>
+    </section>
+
+    {{>footer}}
+    {{>toastRepository}}
+
+</body>
+
+</html>

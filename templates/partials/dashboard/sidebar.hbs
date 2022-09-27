@@ -1,0 +1,95 @@
+<div id="screen-loading" class="screen-loading-container">
+    <div class="text-center loading-screen">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">در حال بارگذاری</span>
+        </div>
+    </div>
+</div>
+<nav class="sidenav navbar-expand-sm navbar-light" id="sidebar">
+    <header class="d-flex">
+        <a href="/">
+            <img src="/image/dashboard-logo.png" class="hover-pointer" alt="">
+        </a>
+        <div>
+            <div class="title" id="username">ناشناس</div>
+            <div class="subtitle">خوش آمدید</div>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar"
+            aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </header>
+
+
+    <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="me-auto">
+            <li class="nav-item">
+                <a class="nav-link" id="dashboard" href="/dashboard"><img src="/image/briefcase.png" alt="">داشبورد
+                    کاربری</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="myServices" href="/dashboard/myServices"><img src="/image/layer.png"
+                        alt="">سرویس
+                    ‌های من</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="purchaseGpuService" href="/dashboard/purchaseGpuService"><img
+                        src="/image/cpu.png" alt="">خریداری سرویس
+                    پردازشی</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="factors" href="/dashboard/factors"><img src="/image/factor.png" alt="">صورت حساب
+                    و فاکتور
+                    ‌ها</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="userSetting" href="/dashboard/userSetting"><img src="/image/setting.png"
+                        alt="">تنظیمات کاربری</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="ticket" href="/dashboard/ticket"><img src="/image/ticket.png" alt="">تیکت‌های
+                    پشتیبانی</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" onclick="exitUser()" style="cursor: pointer;"><img src="/image/logout.png"
+                        alt="">خروج از حساب کاربری</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div id="title" style="display: none;">{{name}}</div>
+
+
+<script>
+    const name = localStorage.getItem("name");
+    const token = localStorage.getItem("token");
+
+    const title = document.getElementById("title").innerHTML
+    const dashboard = document.getElementById("dashboard")
+    const myServices = document.getElementById("myServices")
+    const purchaseGpuService = document.getElementById("purchaseGpuService")
+    const factors = document.getElementById("factors")
+    const userSetting = document.getElementById("userSetting")
+    const ticket = document.getElementById("ticket")
+    switch (title) {
+        case "dashboard":
+            dashboard.classList.add("active")
+            break;
+        case "myServices":
+            myServices.classList.add("active")
+            break;
+        case "purchaseGpuService":
+            purchaseGpuService.classList.add("active")
+            break;
+        case "factors":
+            factors.classList.add("active")
+            break;
+        case "userSetting":
+            userSetting.classList.add("active")
+            break;
+        case "ticket":
+            ticket.classList.add("active")
+            break;
+        default:
+    }
+</script>

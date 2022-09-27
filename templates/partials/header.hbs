@@ -1,0 +1,105 @@
+<header class="header">
+    <div class="logo d-flex">
+        <a class="navbar-brand text-light" href="/">
+            <img src="/image/logo.png" alt="logo">
+        </a>
+        <a class="navbar-brand text-light" href="/">
+            <div class="title text-light"> ابر‌گرافیک</div>
+            <div class="subtitle text-light"> ارائه راهکارهای پردازش سریع</div>
+        </a>
+    </div>
+    <input class="menu-btn" onclick="fadeIt(event)" type="checkbox" id="menu-btn" />
+    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+    <ul class="menu">
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" id="introduce_services" href="/#intro-services">معرفی
+                سرویس<i class="fa fa-angle-left d-lg-none float-left"></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" id="costs" href="/costs">سرویس‌ها<i
+                    class="fa fa-angle-left d-lg-none float-left"></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" id="about_us" href="/about_us">درباره ما<i
+                    class="fa fa-angle-left d-lg-none float-left"></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" id="contact_us" href="/contact_us">تماس با ما<i
+                    class="fa fa-angle-left d-lg-none float-left"></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" id="FAQ" href="/FAQ">پرسش‌های متداول<i
+                    class="fa fa-angle-left d-lg-none float-left"></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" id="partnership" href="/partnership">همکاری با ما<i
+                    class="fa fa-angle-left d-lg-none float-left"></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" id="blog" href="/blog">وبلاگ<i
+                    class="fa fa-angle-left d-lg-none float-left"></i></a>
+        </li>
+        <li class="nav-item">
+            <div class="d-flex justify-content-center px-3"><a class="submit-btn text-center" id="loginBtnHeder"
+                    href="/getNumberUser">ورود
+                    و
+                    عضویت</a></div>
+        </li>
+        <li class="nav-item">
+            <div class="d-flex justify-content-center px-3"><a class="submit-btn text-center" id="dashboardBtnHeder"
+                    href="/dashboard">داشبورد</a></div>
+        </li>
+    </ul>
+    <a class="header-btn bg-opacity-green" id="login" href="/getNumberUser">ورود و عضویت</a>
+    <a class="header-btn bg-opacity-green" id="dashboard" href="/dashboard">داشبورد</a>
+    <div id="title" style="display: none;">{{name}}</div>
+</header>
+<header class="extra-header"></header>
+<div id="fadeHeader" class="fade-header fade-header2"></div>
+<script>
+    const fadeIt = (e) => {
+        document.getElementById("fadeHeader").classList.toggle("fade-header2")
+    }
+    const token = localStorage.getItem("token")
+    const login = document.getElementById("login")
+    const dashboard = document.getElementById("dashboard")
+    if (!token) {
+        dashboard.style.display = "none"
+        document.getElementById("dashboardBtnHeder").style.display = "none"
+    } else {
+        document.getElementById("loginBtnHeder").style.display = "none"
+        login.style.display = "none"
+    }
+    const title = document.getElementById("title").innerHTML
+    const introduce_services = document.getElementById("introduce_services")
+    const costs = document.getElementById("costs")
+    const about_us = document.getElementById("about_us")
+    const contact_us = document.getElementById("contact_us")
+    const FAQ = document.getElementById("FAQ")
+    const partnership = document.getElementById("partnership")
+    const blog = document.getElementById("blog")
+    switch (title) {
+        case "introduce_services":
+            introduce_services.classList.add("active")
+            break;
+        case "costs":
+            costs.classList.add("active")
+            break;
+        case "about_us":
+            about_us.classList.add("active")
+            break;
+        case "contact_us":
+            contact_us.classList.add("active")
+            break;
+        case "FAQ":
+            FAQ.classList.add("active")
+            break;
+        case "partnership":
+            partnership.classList.add("active")
+            break;
+        case "blog":
+            blog.classList.add("active")
+            break;
+        default:
+    }
+</script>

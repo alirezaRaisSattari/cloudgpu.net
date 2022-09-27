@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{>dashboard/head}}
+
+<head>
+    <title>فاکتور‌ها</title>
+    <script type="module" src="/js/dashboard/factors.js"></script>
+</head>
+
+<body>
+    <!--===================== header =====================-->
+    {{>dashboard/sidebar}}
+
+    <div class="page-title d-md-none"><span>صورت حساب و فاکتور‌ها</span></div>
+    <div id="price" class="dashboard d-flex buy-service bills">
+        <section class="main">
+            <div class="">
+
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item active">
+                        <a class="nav-link" data-bs-toggle="tab" id="allFactor" href="#allFactors">همه
+                            صورت حساب‌ها</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#notPaid">پرداخت نشده <span
+                                class="badge rounded-pill bg-terracota" id="notPaidNum">۳</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#paid">پرداخت شده</a>
+                    </li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div id="allFactors" class="tab-pane fade active"><br></div>
+                    <div id="paid" class="tab-pane fade"><br></div>
+                    <div id="notPaid" class="tab-pane fade"><br></div>
+                </div>
+            </div>
+
+        </section>
+        {{>toastRepository}}
+    </div>
+
+    <div class="modal fade" id="warningTxt" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-header flex-column">
+                    <header class="d-flex align-center">
+                        <img src="/image/right-arrow.png" alt="">
+                        <h4 class="title-modal">توجه کنید</h4>
+                        <img src="/image/left-arrow.png" alt="">
+                    </header>
+                    <div class="subtitle text-muted">لطفا قبل از پرداخت سرویس متن زیر را مطالعه نمایید</div>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        سرورها در پایان مدت زمان خریداری شده به صورت اتوماتیک حذف می‌شوند لذا حتما اطلاعات خود را قبل از
+                        اتمام مهلت استفاده از
+                        سرویس برای خود ذخیره سازی کنید.
+                    </p>
+                    <p>
+                        (ابر گرافیک مسئولیتی در قبال دیتا های از دست رفته ندارد)
+                    </p>
+                    <div class="mt-5 d-flex align-content-space-between ">
+                        <p>متوجه شدم (لطفا برای خرید سرویس تایید کنید)</p>
+                        <input type="checkbox"
+                            onchange="document.getElementById('finalStepBuyService').disabled = !this.checked;">
+                    </div>
+                    <div class="d-flex align-content-center">
+                        <button type="button" id="finalStepBuyService" onclick="payBill2();"
+                            class="btn submit-btn mt-4 mx-auto" disabled data-bs-dismiss="modal">خرید
+                            سرویس</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //set responsive mobile input field placeholder text
+        if ($(window).width() < 769) {
+            $(".takhfif input").attr("placeholder", "کد تخفیف دارید");
+        }
+        else {
+            $(".takhfif input").attr("placeholder", "کد تخفیف");
+        }
+        $(window).resize(function () {
+            if ($(window).width() < 769) {
+                $(".takhfif input").attr("placeholder", "کد تخفیف دارید");
+            }
+            else {
+                $(".takhfif input").attr("placeholder", "کد تخفیف");
+            }
+        });
+    </script>
+    <style>
+        * {
+            font-family: vazir;
+        }
+
+        .title-modal {
+            font-size: 21px;
+            font-weight: bolder;
+            margin: 14px;
+        }
+
+        .modal {
+            height: 100vh;
+            padding: 0;
+            margin: 50px auto;
+        }
+
+        .align-content-space-between {
+            justify-content: space-between;
+            padding: 0 23px;
+        }
+
+        .modal-dialog {
+            height: fit-content;
+            margin: auto;
+        }
+    </style>
+</body>
+
+</html>

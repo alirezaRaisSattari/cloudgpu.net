@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{>dashboard/head}}
+
+<head>
+    <title>داشبورد</title>
+    <script type="module" src="/js/dashboard/dashboard.js"></script>
+</head>
+
+<body>
+    {{>dashboard/sidebar}}
+
+    <div class="page-title d-md-none"><span>داشبورد کاربری</span></div>
+    <div id="price" class="dashboard first">
+        <section class="main" style="-webkit-mask-image: none" id="freeServices">
+        </section>
+        <section class="main" id="services">
+        </section>
+        <div class="show-more" id="showMore">
+            <div><button class="submit-btn" onclick="showMore(event)">نمایش بیشتر …</button></div>
+        </div>
+        <div class="mobLine d-md-none">
+            <div></div>
+        </div>
+        <section class="lower d-flex">
+            <div class="ticket" id="ticketContainer">
+                <header class="d-flex">
+                    <img src="/image/ticket.png" alt="">
+                    <span class="title">تیکت‌های پشتیبانی اخیر</span>
+                </header>
+            </div>
+            <div class="factor" id="recentFactor">
+                <header>
+                    <img src="/image/factor.png" alt="">
+                    <span class="title">صورت حساب و فاکتور‌های اخیر</span>
+                </header>
+            </div>
+        </section>
+    </div>
+
+    <div class="modal fade" id="ticket-form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="header-body">
+                    <div class="modal-header">
+                        <div>
+                            <header id="ticketHeader">
+
+                            </header>
+                        </div>
+                        <button type="button" class="" data-bs-dismiss="modal" aria-label="Close">بستن</button>
+                    </div>
+                    <div class="d-flex flex-column mt-4" id="ticketMessages">
+                    </div>
+                </div>
+
+                <div class="footer d-flex justify-item-center">
+                    برای پاسخ، به قسمت تیکت مراجعه نمایید
+                </div>
+            </div>
+        </div>
+    </div>
+    {{>toastRepository}}
+</body>
+<style>
+    .unread-num {
+        width: 20px;
+        height: 20px;
+        background-color: var(--Terracota);
+        border-radius: 47px;
+    }
+
+    .font-sm {
+        font-size: 14px;
+    }
+</style>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+{{>dashboard/head}}
+
+<head>
+    <title>تیکت‌ها</title>
+    <script src="/js/jalali-moment.js"></script>
+    <script type="module" src="/js/dashboard/ticket.js"></script>
+</head>
+
+<body>
+    <!--===================== header =====================-->
+    <div class="supreme-container">
+        {{>dashboard/sidebar}}
+
+        <div class="page-title d-md-none"><span>تیکت‌های پشتیبانی</span></div>
+
+        <div id="price" class="dashboard ticket">
+            <section class="main lower d-flex align-items-start">
+
+                <div class="info">
+                    <header class="title">
+                        <div>ثبت و ایجاد تیکت جدید</div>
+                    </header>
+                    <div>
+                        <form onsubmit="postApi(event)" class="gray">
+                            <div>
+                                <label for="fullname" class="form-label">عنوان</label>
+                                <input type="text" class="form-control" id="ticketTitle" maxlength="40" name="fullname"
+                                    required>
+                            </div>
+                            <div class="mt-4">
+                                <label for="comment" class="form-label">متن پیام</label>
+                                <textarea class="form-control" rows="9" id="comment" name="text"
+                                    oninput="auto_grow_label(this)" required></textarea>
+                            </div>
+                            <div id="createTicketForm">
+                                <button type="submit" class="btn form-control" id="createTicketSubmitBtn">ثبت و ایجاد
+                                    تیکت جدید</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="ticket">
+                    <header id="ticketContainerHeader">
+                        <img src="/image/ticket.png" alt="">
+                        <span class="title">تیکت‌های پشتیبانی</span>
+                    </header>
+                    <div class="ticket" id="ticketContainer"></div>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="ticket-form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                {{!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
+                <div class="header-body">
+                    <div class="modal-header">
+                        <div>
+                            <header id="ticketHeader">
+
+                            </header>
+                        </div>
+                        <button type="button" class="" data-bs-dismiss="modal" aria-label="Close">بستن</button>
+                    </div>
+                    <div class="d-flex flex-column mt-4" id="ticketMessages">
+                    </div>
+                </div>
+
+                <div class="footer">
+                    <form onsubmit="sendMessage(event)">
+                        <div class="answer-text">
+                            <textarea class="form-control" rows="1" id="reply" name="reply"
+                                placeholder="پاسخ خود را اینجا بنویسید …" oninput="auto_grow(this)"></textarea>
+                        </div>
+
+
+                        <button type="submit" class="btn"><span class="d-none d-md-block">ارسال </span>
+                            <i class='fas fa-arrow-left d-md-none'></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{>toastRepository}}
+    <script>
+        function auto_grow(element) {
+            element.style.height = "5px";
+            element.style.height = (element.scrollHeight) + "px";
+        }
+        function auto_grow_label(element) {
+            element.style.height = "5px";
+            element.style.height = (element.scrollHeight + 5) + "px";
+        }
+    </script>
+</body>
+
+</html>

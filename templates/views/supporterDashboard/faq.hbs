@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{>supporter/head}}
+
+<head>
+    <title>پرسش‌های متداول</title>
+    <script src="/js/supporter/faq.js" type="module"></script>
+</head>
+
+<body>
+    {{>supporter/sidebar}}
+    <div class="main-manage-service">
+        <div class="manage-card mx-auto row">
+            <form onsubmit="postTitle(event);" class="row">
+                <h5 class="mb-3">ساخت موضوع جدید</h5>
+                <div class="labels mt-1">
+                    <p>موضوع</p>
+                    <input required placeholder="موضوع" class="creator-input px-2" id="newTitle"></input>
+                </div>
+
+                <div id="createFaqTitle"></div>
+                <button id="createFaqTitleBtn" class="submit-btn w-50 mx-auto mt-4" type="submit">ارسال
+                </button>
+            </form>
+        </div>
+
+        <div class="manage-card mx-auto row">
+            <form onsubmit="postQuestion(event)" class="row">
+                <h5 class="mb-3">ساخت پرسش و پاسخ جدید</h5>
+                <select placeholder="موضوع" required class="labels mt-1 mx-3 w-95 mb-4" id="selectOption">
+                    <option value="" disabled selected>موضوع مورد نظر را انتخاب کنید</option>
+                    {{!-- <option value="volvo">Volvo</option> --}}
+                </select>
+                <div class="labels mt-1">
+                    <p>پرسش</p>
+                    <input required placeholder="پرسش" class="creator-input px-2" id="questionTitle"></input>
+                </div>
+                <div class="labels mt-1">
+                    <p>پاسخ</p>
+                    <textarea class="form-control" rows="2" id="answer" name="text"
+                        oninput="auto_grow_label(this)"></textarea>
+                </div>
+                <div class="d-flex justify-content-around align-content-center mt-4">
+                    <p class="my-auto font-size-custom">این پرسش و پاسخ در صفحه اصلی قرار بگیرد؟</p>
+                    <input class="my-auto hover-pointer" id="switchStarred" type="checkbox" />
+                </div>
+                <div id="createQuestion"></div>
+                <button id="createQuestionBtn" class="submit-btn w-50 mx-auto mt-4" type="submit">ارسال
+                </button>
+            </form>
+        </div>
+
+        <div class="manage-card mx-auto row">
+            <form onsubmit="deleteTitleApi(event)" class="row">
+                <h5 class="mb-3">حذف موضوع</h5>
+                <select placeholder="موضوع" required class="labels mt-1 mx-3 w-95 mb-4" id="deleteTitleOption">
+                    <option value="" disabled selected>موضوع مورد نظر را انتخاب کنید</option>
+                </select>
+                <div id="deleteTitle"></div>
+                <button id="deleteTitleBtn" class="delete-btn w-50 mx-auto mt-4" type="submit">حذف
+                </button>
+            </form>
+            <form onsubmit="deleteQuestionApi(event)" class="row">
+                <h5 class="mb-3">حذف پرسش و پاسخ</h5>
+                <select placeholder="موضوع" required onchange='getQuestion()' class="labels mt-1 mx-3 w-95 mb-4"
+                    id="deleteTitleQuestionOption">
+                    <option value="" disabled selected>موضوع مورد نظر را انتخاب کنید</option>
+                </select>
+                <select placeholder="موضوع" required class="labels mt-1 mx-3 w-95 mb-4" id="deleteQuestionOption">
+                    <option value="" disabled selected>لطفا ابتدا موضوع مورد نظر را انتخاب کنید سپس پرسش را
+                        انتخاب کنید</option>
+                </select>
+
+                <div id="deleteQuestion"></div>
+                <button id="deleteQuestionBtn" class="delete-btn w-50 mx-auto mt-4" type="submit">حذف
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+    <script>
+        function auto_grow(element) {
+            element.style.height = "5px";
+            element.style.height = (element.scrollHeight) + "px";
+        }
+        function auto_grow_label(element) {
+            element.style.height = "5px";
+            element.style.height = (element.scrollHeight + 5) + "px";
+        }
+    </script>
+
+    <style>
+        input[type="checkbox"] {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            -webkit-appearance: none;
+            background: #c6c6c6;
+            outline: none;
+            border-radius: 20px;
+            box-shadow: inset 0 0 5px rgba(255, 0, 0, 0.2);
+            transition: 0.7s;
+        }
+
+        input:checked[type="checkbox"] {
+            background: #03a9f4;
+        }
+
+        input[type="checkbox"]:before {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 20px;
+            top: 0;
+            left: 0;
+            background: #ffffff;
+            transform: scale(1.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: .5s;
+        }
+
+        input:checked[type="checkbox"]:before {
+            left: 30px;
+        }
+
+        #price.buy-service .sidebar {
+            padding-right: 0;
+        }
+
+        .manage-card {
+            margin-top: auto;
+            margin-bottom: auto;
+            background-color: #fff;
+            border-radius: 5px;
+            width: 95%;
+            padding: 30px;
+        }
+
+        .main-manage-service {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-items: center;
+            align-items: center;
+            border-radius: 5px;
+            padding-top: 100px
+        }
+
+        @media screen and (min-width: 1160px) {
+            .main-manage-service {
+                padding-right: 330px;
+                padding-top: 0px !important;
+            }
+        }
+
+        @media screen and (max-width: 990px) {
+            .manage-card {
+                margin-top: 10px;
+            }
+        }
+
+        * {
+            font-family: vazir !important;
+        }
+
+        .labels {
+            font-size: 14px;
+        }
+
+        .creator-input {
+            height: 40px;
+            width: 100%;
+            font-size: 13px;
+        }
+
+        .submit-btn {
+            height: 43px !important;
+            font-size: 13px;
+            max-width: 230px;
+        }
+
+        .delete-btn {
+            height: 43px !important;
+            font-size: 13px;
+            max-width: 230px;
+        }
+    </style>
+
+</body>
+
+</html>

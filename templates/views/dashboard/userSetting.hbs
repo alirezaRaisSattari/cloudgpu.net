@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{>dashboard/head}}
+
+<head>
+    <title>تنظیمات کاربر</title>
+    <script type="module" src="/js/dashboard/userSetting.js"></script>
+</head>
+
+<body>
+    <!--===================== header =====================-->
+    {{>dashboard/sidebar}}
+
+    <div class="page-title d-md-none"><span>تنظیمات کاربری</span></div>
+
+    <div id="price" class="dashboard user">
+        <section class="main d-flex align-items-start">
+
+            <div class="info">
+                <header class="title">
+                    <div>اطلاعات کاربری</div>
+                </header>
+                <div>
+                    <form onsubmit="changeUserInfo(event)" class="gray" id="userInfoForm">
+                        <div>
+                            <label for="fullname" class="form-label">نام و نام خانوادگی / نام شرکت یا استارتاپ</label>
+                            <input type="text" class="form-control" id="fullname" name="fullname" required>
+                        </div>
+                        <div>
+                            <label for="activity" class="form-label">زمینه فعالیت</label>
+                            <input type="text" class="form-control" id="field" name="activity">
+                        </div>
+                        <div>
+                            <label for="email" class="form-label">آدرس ایمیل</label>
+                            <input type="email" class="form-control" id="email" placeholder="mojtabakhazaeli@live.com"
+                                name="email">
+                        </div>
+                        <div class="disabled" data-toggle="tooltip" data-placement="top"
+                            title="امکان تغییر شماره موبایل وجود ندارد">
+                            <label for="phone" class="form-label">شماره تلفن همراه</label>
+                            <input type="text" class="form-control" id="phone" name="phone" required disabled>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn form-control" id="infoUserSubmitBtn">ثبت و ذخیره
+                                سازی</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="password">
+                <header class="title">
+                    <div>تغییر کلمه عبور</div>
+                </header>
+                <div>
+                    <form onsubmit="changePassword(event)" class="gray" id="passwordForm">
+                        <div class="pass">
+                            <label for="password" class="form-label">کلمه عبور فعلی</label>
+                            <input type="password" class="form-control" id="oldPassword" value="" name="password"
+                                required>
+                            <span class="showpass" onclick="showpassword1()"><i class="fa fa-eye"
+                                    id="togglePassword1"></i></span>
+                            <p class="text-danger font-sm" style="display: none;" id="falsePass">کلمه عبور فعلی شما
+                                اشتباه است</p>
+                        </div>
+                        <div class="pass">
+                            <label for="newpassword" class="form-label">کلمه عبور جدید</label>
+                            <input type="password" class="form-control" id="password" value="" name="newpassword"
+                                required>
+                            <span class="showpass" onclick="showpassword2()"><i class="fa fa-eye"
+                                    id="togglePassword2"></i></span>
+                        </div>
+                        <div class="pass">
+                            <label for="repassword" class="form-label">تکرار کلمه عبور جدید</label>
+                            <input type="password" class="form-control" id="repassword" value="" name="repassword"
+                                required>
+                            <span class="showpass" onclick="showpassword3()"><i class="fa fa-eye"
+                                    id="togglePassword3"></i></span>
+                            <p class="text-danger font-sm" style="display: none;" id="notCorrespond">کلمه عبور مطابق
+                                تکرار کلمه عبور نمی
+                                باشد</p>
+                        </div>
+                        <div>
+                            <a class="text-info hover-pointer" onclick="forgetPassword()"> آیا رمز عبور خود را فراموش
+                                کرده اید؟</a>
+                        </div>
+                        <div><button type="submit" class="btn form-control" id="passwordSubmitBtn">بازنشانی کلمه
+                                عبور</button></div>
+                    </form>
+                </div>
+            </div>
+
+
+        </section>
+
+    </div>
+    <div style="display: none;" id="otp">
+        {{>otpCode}}
+    </div>
+    {{>toastRepository}}
+
+
+    <script>
+        function showpassword1() {
+            var x = document.getElementById("oldPassword");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+            var element = document.getElementById("togglePassword1");
+            element.classList.toggle("fa-eye");
+            element.classList.toggle("fa-eye-slash");
+        }
+        function showpassword2() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+            var element = document.getElementById("togglePassword2");
+            element.classList.toggle("fa-eye");
+            element.classList.toggle("fa-eye-slash");
+        }
+        function showpassword3() {
+            var x = document.getElementById("repassword");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+            var element = document.getElementById("togglePassword3");
+            element.classList.toggle("fa-eye");
+            element.classList.toggle("fa-eye-slash");
+        }
+    </script>
+
+</body>
+<style>
+    .font-sm {
+        font-size: 12px;
+    }
+</style>
+
+</html>
